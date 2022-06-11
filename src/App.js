@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
-import { Map } from './Map'
-import { Registration } from './Registration'
-import { Profile } from './Profile'
-import { Login } from './Login'
+import { Map } from './pages/Map/Map'
+import { RegistrationWithAuth } from './pages/Registration/Registration'
+import { ProfileWithAuth } from './pages/Profile/Profile'
+import { HomeWithAuth }  from './pages/Home/Home'
+import { withAuth } from './AuthContext'
 
 import './App.css';
 
 const PAGES = {
-  map: Map,
-  profile: Profile,
-  registration: Registration,
-  login: Login
+  map: (props) => <Map {...props}/>,
+  profile: (props) => <ProfileWithAuth {...props} />,
+  registration: (props) => <RegistrationWithAuth {...props} />,
+  home: (props) => <HomeWithAuth {...props} />
 }
 
 class App extends Component {
   state = { currentPage: 'registration' }
 
   navigateToNextPage = (page) => {
-      this.setState({ currentPage: page })
+      if(this.props.isLoggedIn) {
+        this.setState({ currentPage: page })
+      } else {
+        this.setState({ currentPage: 'home' })
+      }
   }
   render() {
     const { currentPage } = this.state
@@ -34,4 +39,4 @@ class App extends Component {
 
 
 
-export default App;
+export default withAuth(App);

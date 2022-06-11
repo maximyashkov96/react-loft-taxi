@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.root {
+    margin-top: 10%;
+}
+
+.my-button {
+    display: block !important;
+    width: 353px;
+    height: 61px;
+    background-color: #FDBF5A !important;
+    border-radius: 70px !important;
+    color: #000000 !important;
+    margin: 50px auto !important;
+}
+
+.my-label {
+    text-align: left;
+}
+
+.title {
+    margin-bottom: 57px;
+    text-align: center;
+}

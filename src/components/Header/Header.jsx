@@ -1,7 +1,8 @@
 import React, {Component } from "react";
+import Button from '@mui/material/Button'
 
-import LoftTaxiLogo from './assets/LoftTaxiLogo.svg'
-import LoftTaxiText from './assets/LoftTaxiText.svg'
+import LoftTaxiLogo from '../../assets/LoftTaxiLogo.svg'
+import LoftTaxiText from '../../assets/LoftTaxiText.svg'
 
 const Styles = {
     root: {
@@ -24,7 +25,7 @@ const Styles = {
     }
 }
 
-class Header extends Component {
+export default class Header extends Component {
         render() {
             const { navigateToNextPage } = this.props
             return (
@@ -37,13 +38,13 @@ class Header extends Component {
                     <nav>
                         <ul style={Styles.ul}>
                             <li>
-                                <button style={Styles.button} onClick={() => navigateToNextPage('map')}>Карта</button>
+                                <Button color="primary" size="medium" onClick={() => navigateToNextPage('map')}>Карта</Button>
                             </li>
                             <li>
-                                <button style={Styles.button} onClick={() => navigateToNextPage('profile')}>Профиль</button>
+                                <Button color="primary" size="medium" onClick={() => navigateToNextPage('profile')}>Профиль</Button>
                             </li>
                             <li>
-                                <button style={Styles.button} onClick={() => navigateToNextPage('registration')}>Войти</button>
+                                <Button color="primary" size="medium" onClick={() => navigateToNextPage('registration')}>Войти</Button>
                             </li>
                         </ul>
                     </nav>
@@ -52,5 +53,3 @@ class Header extends Component {
             )
     }
 }
-
-export { Header }
